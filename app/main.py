@@ -1,4 +1,13 @@
+import sys
+import os
+
+# Adds the root directory to the system path so 'src' can be found
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 import streamlit as st
+import pandas as pd
+import joblib
+from src.data_processor import load_and_merge_dataimport streamlit as st
 import pandas as pd
 import joblib
 from src.data_processor import load_and_merge_data

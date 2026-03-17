@@ -7,7 +7,7 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import streamlit as st
 import pandas as pd
 import joblib
-from src.data_processor import load_and_merge_dataimport streamlit as st
+from src.data_processor import load_and_merge_data
 
 
 # Set Page Config for Professional Look

@@ -1,4 +1,4 @@
-## Health Equity Insights Dashboard
+# Health Equity Insights Dashboard
 Intersectional Health Analytics & Cost Burden Tracker
 
 # Architecture

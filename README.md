@@ -1,7 +1,7 @@
-Health Equity Insights Dashboard
+## Health Equity Insights Dashboard
 Intersectional Health Analytics & Cost Burden Tracker
 
-🏗️ Architecture
+# Architecture
 
 ```
 health_equity_insights_dashboard/
@@ -21,7 +21,7 @@ health_equity_insights_dashboard/
 └── README.md
 ```
 
- Setup (Step-by-Step)
+# Setup (Step-by-Step)
 
 1. Install Python dependencies
 
@@ -52,7 +52,7 @@ streamlit run app/main.py
 
 Open: Localhost port provided in terminal (standard is http://localhost:8501)
 
- Dashboard Logic
+# Dashboard Logic
 
 | Component           | Logic Source      | Description                                                 |
 | ------------------- | ----------------- | ----------------------------------------------------------- |
@@ -61,7 +61,7 @@ Open: Localhost port provided in terminal (standard is http://localhost:8501)
 | Predictive Engine   | model_loader.py   | Loads Random Forest weights to forecast future claim costs  |
 | Equity Visuals      | visuals.py        | Generates bar charts focused on the Vertical Equity gap     |
 
- Intersectional Equity Logic
+# Intersectional Equity Logic
 
 | Metric              | Threshold/Insight                      | Target Policy Action                       |
 | ------------------- | -------------------------------------- | ------------------------------------------ |
@@ -69,7 +69,7 @@ Open: Localhost port provided in terminal (standard is http://localhost:8501)
 | Cost Disparity      | $895 (State Avg) vs $1,350 (High Risk) | Identify targeted funding for Social Needs |
 | Disease Clustering  | > 300 Cases per City                   | Deploy specialized mobile health clinics   |
 
- Workflow Per Analysis
+# Workflow Per Analysis
 
 1. Data Merging
    Recombine partitioned files and clean patient records to ensure referential integrity.
@@ -85,7 +85,7 @@ Open: Localhost port provided in terminal (standard is http://localhost:8501)
 4. Predictive Forecasting
    Random Forest model predicts future financial risk based on input demographic profiles.
 
- Extending the Data Pipeline
+# Extending the Data Pipeline
 
 To add new clinical metrics (e.g., Diabetes or Observations data), add the CSV to the data/ folder and update the join logic in src/data_processor.py:
 

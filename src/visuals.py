@@ -1,13 +1,16 @@
 import streamlit as st
-import pandas as pd
 
 def render_financial_overview(report_df):
-    st.subheader("💰 Financial Burden by Income Tier")
-    st.bar_chart(data=report_df, x="INCOME_TIER", y="TOTAL_CLAIM_COST")
-    st.caption("Lower income tiers often show higher per-encounter costs due to acute care reliance.")
+    st.subheader("💰 Financial Burden Overview")
+    st.bar_chart(report_df.set_index("CITY")[["HEALTHCARE_EXPENSES", "INCOME"]])
 
-def render_geographic_analysis(report_df, selected_county):
-    st.subheader(f"📍 Geographic Cost Analysis: {selected_county} County")
-    # Filter for the specific county selected in the sidebar
-    county_data = report_df[report_df['CITY'].isin(report_df['CITY'].unique())] # Simplified
-    st.line_chart(data=county_data, x="CITY", y="HEALTHCARE_EXPENSES")
+def render_geographic_analysis(data_df, selected_city):
+    st.subheader(f"📍 Health Insights in {selected_city}")
+    city_data = data_df[data_df['CITY'] == selected_city]
+
+    if city_data.empty:
+        st.warning("No data for selected city")
+        return
+
+    top_conditions = city_data['DESCRIPTION'].value_counts().head(5)
+    st.bar_chart(top_conditions)

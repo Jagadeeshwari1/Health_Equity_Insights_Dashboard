@@ -1,3 +1,8 @@
+import os
+import streamlit as st
+
+st.write("ROOT:", os.listdir(root_path))
+st.write("SRC:", os.listdir(root_path / "src"))
 import sys
 from pathlib import Path
 

@@ -52,4 +52,5 @@ def load_and_merge_data():
     }).rename(columns={'Id': 'Encounter_Count'}).reset_index()
 
     return merged_data, equity_report
-   
+   print("DATA DIR:", data_dir)
+print("FILES FOUND:", encounter_files)

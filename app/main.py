@@ -1,19 +1,27 @@
+import sys
 import os
+from pathlib import Path
 import streamlit as st
 
-st.write("ROOT:", os.listdir(root_path))
-st.write("SRC:", os.listdir(root_path / "src"))
-import sys
-from pathlib import Path
-
-# Fix path
+# ✅ DEFINE PATH FIRST
 current_dir = Path(__file__).resolve().parent
 root_path = current_dir.parent
+
+# ✅ THEN DEBUG
+st.write("ROOT:", os.listdir(root_path))
+st.write("SRC:", os.listdir(root_path / "src"))
+
+# ✅ ADD TO PATH
 sys.path.insert(0, str(root_path))
 
 import streamlit as st
 from src.data_processor import load_and_merge_data
-from src.visuals import render_financial_overview, render_geographic_analysis
+import importlib
+
+visuals = importlib.import_module("src.visuals")
+
+render_financial_overview = visuals.render_financial_overview
+render_geographic_analysis = visuals.render_geographic_analysis
 from src.model_loader import load_model
 
 st.set_page_config(page_title="Health Equity Tracker", layout="wide")
